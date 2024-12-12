@@ -1,5 +1,5 @@
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 import streamlit as st
 from langchain_openai import ChatOpenAI
 from langchain_community.chat_models import ChatOpenAI
