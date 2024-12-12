@@ -1,10 +1,20 @@
 # from dotenv import load_dotenv
 # load_dotenv()
+import os
+
 import streamlit as st
 from langchain_openai import ChatOpenAI
-from langchain_community.chat_models import ChatOpenAI
 
-chat_model = ChatOpenAI()
+# Streamlit secrets에서 API 키 가져오기
+try:
+    openai_api_key = st.secrets["OPENAI_API_KEY"]
+except:
+    openai_api_key = "your-api-key-here"
+
+# ChatOpenAI 인스턴스 생성 시 API 키 전달
+chat_model = ChatOpenAI(api_key=openai_api_key, 
+                        model="gpt-3.5-turbo",
+                        temperature=0)
 
 st.title("인공지능 음악")
 
